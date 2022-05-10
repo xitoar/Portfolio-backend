@@ -26,15 +26,18 @@ public class Controller {
   @CrossOrigin ("http://localhost:4200")
   @GetMapping ("/info/{id}")
   @ResponseBody
-  public DTOTotal verPersona(@PathVariable Long id){      
-      Persona pers = persoServ.buscarPersona(id);
-      List <Educacion> educacion = eduServ.buscarEducacionTotal();
-      DTOTotal total = new DTOTotal();      
-      total.setId(pers.getId());
-      total.setNombre(pers.getNombre());
-      total.setEducacion(educacion);      
-      return total;
+  public Persona verPersona(@PathVariable Long id){      
+      return  persoServ.buscarPersona(id);
   }
+  //public DTOTotal verPersona(@PathVariable Long id){      
+  //    Persona pers = persoServ.buscarPersona(id);
+  //    List <Educacion> educacion = eduServ.buscarEducacionTotal();
+  //    DTOTotal total = new DTOTotal();      
+  //    total.setId(pers.getId());
+  //    total.setNombre(pers.getNombre());
+  //    total.setEducacion(educacion);      
+  //    return total;
+ //}
   
   @CrossOrigin ("http://localhost:4200")
   @PostMapping ("/nuevo")
