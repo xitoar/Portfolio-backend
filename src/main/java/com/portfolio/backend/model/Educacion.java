@@ -1,6 +1,4 @@
-
 package com.portfolio.backend.model;
-
 
 import java.io.Serializable;
 
@@ -11,25 +9,21 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
-
+import javax.persistence.ManyToOne; 
 
 @Entity
 public class Educacion implements Serializable {
-   
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String titulo;
     private String subtitulo;
-    @Column(columnDefinition="text")
+    @Column(columnDefinition = "text")
     private String comentario;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="persId")  
-    
+    @JoinColumn(name = "persId")
     private Persona persona;
-   
 
     public Educacion() {
     }
@@ -72,12 +66,10 @@ public class Educacion implements Serializable {
 
     public void setComentario(String comentario) {
         this.comentario = comentario;
-    }   
-    
+    }
 
     public void setPersona(Persona persona) {
         this.persona = persona;
     }
-    
-    
+
 }

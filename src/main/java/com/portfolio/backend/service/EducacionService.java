@@ -13,8 +13,11 @@ public class EducacionService implements IEducacionService{
     @Autowired EducacionRepository eduRepo;
     
     @Override
-    public void crearEducacion(Educacion edu) {
+    public List<Educacion> crearEducacion(Educacion edu) {
         eduRepo.save(edu);
+        List<Educacion> lista = buscarEducacionTotal();         
+        return lista;
+                
     }
 
     @Override

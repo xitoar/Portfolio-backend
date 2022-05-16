@@ -10,4 +10,6 @@ public interface IPersonaService {
     
     public Persona buscarPersona (Long id);
     
+    public boolean login(Persona pers);
+    
 }

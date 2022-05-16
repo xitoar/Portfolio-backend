@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IEducacionService {
     
-    public void crearEducacion (Educacion edu);       
+    public List<Educacion> crearEducacion (Educacion edu);       
     
     public List <Educacion> buscarEducacionTotal();
 }
