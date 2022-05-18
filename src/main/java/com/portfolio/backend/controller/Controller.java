@@ -29,15 +29,6 @@ public class Controller {
     public Persona verPersona(@PathVariable Long id) {
         return persoServ.buscarPersona(id);
     }
-    //public DTOTotal verPersona(@PathVariable Long id){      
-    //    Persona pers = persoServ.buscarPersona(id);
-    //    List <Educacion> educacion = eduServ.buscarEducacionTotal();
-    //    DTOTotal total = new DTOTotal();      
-    //    total.setId(pers.getId());
-    //    total.setNombre(pers.getNombre());
-    //    total.setEducacion(educacion);      
-    //    return total;
-    //}
 
     @CrossOrigin("http://localhost:4200")
     @PostMapping("/nuevo")
@@ -50,14 +41,20 @@ public class Controller {
     @ResponseBody
     public List<Educacion> agregarPersona(@RequestBody Educacion edu) {
         return eduServ.crearEducacion(edu);
-                
     }
-    
-    @CrossOrigin ("http://localhost:4200")
-    @PostMapping ("/login")
+
+    @CrossOrigin("http://localhost:4200")
+    @PostMapping("/login")
     @ResponseBody
-    public boolean login(@RequestBody Persona pers ){       
+    public boolean login(@RequestBody Persona pers) {
         return persoServ.login(pers);
+    }
+
+    @CrossOrigin("http://localhost:4200")
+    @GetMapping("/borrarEdu/{id}")
+    @ResponseBody
+    public List<Educacion> borrarPersona(@PathVariable Long id) {
+        return eduServ.borrarEducacion(id);
     }
 
 }

@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne; 
 
 @Entity
@@ -24,17 +25,22 @@ public class Educacion implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "persId")
     private Persona persona;
+    @Lob
+    private String imagen;
 
     public Educacion() {
     }
 
-    public Educacion(Long id, String titulo, String subtitulo, String comentario, Persona persona) {
+    public Educacion(Long id, String titulo, String subtitulo, String comentario, Persona persona, String imagen) {
         this.id = id;
         this.titulo = titulo;
         this.subtitulo = subtitulo;
         this.comentario = comentario;
         this.persona = persona;
+        this.imagen = imagen;
     }
+
+    
 
     public Long getId() {
         return id;
@@ -60,16 +66,26 @@ public class Educacion implements Serializable {
         this.subtitulo = subtitulo;
     }
 
+  
+
     public String getComentario() {
         return comentario;
     }
 
     public void setComentario(String comentario) {
         this.comentario = comentario;
-    }
-
+    }        
+      
     public void setPersona(Persona persona) {
         this.persona = persona;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
 }
