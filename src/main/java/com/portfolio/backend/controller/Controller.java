@@ -1,6 +1,5 @@
 package com.portfolio.backend.controller;
 
-import com.portfolio.backend.DTO.DTOTotal;
 import com.portfolio.backend.model.Educacion;
 import com.portfolio.backend.model.Persona;
 import com.portfolio.backend.service.IEducacionService;
