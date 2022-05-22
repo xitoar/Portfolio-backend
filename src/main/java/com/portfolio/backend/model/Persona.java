@@ -1,6 +1,5 @@
 package com.portfolio.backend.model;
 
-import java.io.Serializable;
 import java.util.List;
 import static javax.persistence.CascadeType.ALL;
 import javax.persistence.Entity;
@@ -15,7 +14,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Persona implements Serializable {
+public class Persona {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,7 +32,7 @@ public class Persona implements Serializable {
     @OneToMany(cascade = ALL, mappedBy = "persona")
     private List<Experiencia> experiencia;
     @OneToMany(cascade = ALL, mappedBy = "persona")
-    private List<Proyectos> proyectos;    
+    private List<Proyectos> proyectos;
 
     public Persona() {
     }
@@ -52,8 +51,18 @@ public class Persona implements Serializable {
         this.proyectos = proyectos;
     }
 
-    
+    public Persona(Long id, String nombre, String mail, String facebook, String linkedin) {
+        this.id = id;
+        this.nombre = nombre;
+        this.mail = mail;
+        this.facebook = facebook;
+        this.linkedin = linkedin;
 
-    
+    }
+
+    public Persona(String usuario, String password) {
+        this.usuario = usuario;
+        this.password = password;
+    }
 
 }

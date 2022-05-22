@@ -11,6 +11,7 @@ import com.portfolio.backend.service.IProyectosService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -58,7 +59,7 @@ public class Controller {
     }
 
     @CrossOrigin("http://localhost:4200")
-    @GetMapping("/borrarEdu/{id}")
+    @DeleteMapping("/borrarEdu/{id}")
     @ResponseBody
     public List<Educacion> borrarPersona(@PathVariable Long id) {
         return eduServ.borrarEducacion(id);
@@ -72,7 +73,7 @@ public class Controller {
     }
 
     @CrossOrigin("http://localhost:4200")
-    @GetMapping("/borrarProy/{id}")
+    @DeleteMapping("/borrarProy/{id}")
     @ResponseBody
     public List<Proyectos> borrarProyecto(@PathVariable Long id) {
         return proyServ.borrarProyecto(id);
@@ -86,7 +87,7 @@ public class Controller {
     }
 
     @CrossOrigin("http://localhost:4200")
-    @GetMapping("/borrarExp/{id}")
+    @DeleteMapping("/borrarExp/{id}")
     @ResponseBody
     public List<Experiencia> borrarExperiencia(@PathVariable Long id) {
         return expServ.borrarExperiencia(id);

@@ -1,6 +1,7 @@
 package com.portfolio.backend.service;
 
 import com.portfolio.backend.model.Educacion;
+
 import com.portfolio.backend.repository.EducacionRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ public class EducacionService implements IEducacionService {
 
     @Override
     public List<Educacion> buscarEducacionTotal() {
-        return eduRepo.findAll();
+        return eduRepo.findAll() ;
     }
 
     @Override

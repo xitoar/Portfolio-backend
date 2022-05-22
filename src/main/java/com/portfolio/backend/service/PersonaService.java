@@ -27,6 +27,10 @@ public class PersonaService implements IPersonaService {
         List<Persona> personas = persoRepo.findAll();
         boolean aprobado = false;
         for (Persona persona : personas) {
+            System.out.println(persona.getUsuario());
+            System.out.println(persona.getPassword());
+            System.out.println(pers.getUsuario());
+            System.out.println(pers.getPassword());
             if (persona.getUsuario().equals(pers.getUsuario()) && persona.getPassword().equals(pers.getPassword())) {
                 aprobado = true;
                 break;
