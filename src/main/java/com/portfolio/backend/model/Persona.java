@@ -65,4 +65,8 @@ public class Persona {
         this.password = password;
     }
 
+    public Persona(Long id) {
+        this.id = id;
+    }     
+
 }

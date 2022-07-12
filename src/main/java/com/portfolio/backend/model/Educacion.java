@@ -10,7 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
-import javax.persistence.ManyToOne; 
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Educacion implements Serializable {
@@ -40,8 +40,6 @@ public class Educacion implements Serializable {
         this.imagen = imagen;
     }
 
-    
-
     public Long getId() {
         return id;
     }
@@ -66,16 +64,19 @@ public class Educacion implements Serializable {
         this.subtitulo = subtitulo;
     }
 
-  
-
     public String getComentario() {
         return comentario;
     }
 
     public void setComentario(String comentario) {
         this.comentario = comentario;
-    }        
-      
+    }
+
+    public Persona getPersona() {
+        Persona pers = new Persona(persona.getId());        
+        return pers;
+    }
+
     public void setPersona(Persona persona) {
         this.persona = persona;
     }

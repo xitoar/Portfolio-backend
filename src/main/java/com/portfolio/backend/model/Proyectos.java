@@ -57,6 +57,11 @@ public class Proyectos implements Serializable {
         this.comentario = comentario;
     }
 
+    public Persona getPersona() {
+        Persona pers = new Persona(persona.getId());
+        return pers;
+    }
+
     public void setPersona(Persona persona) {
         this.persona = persona;
     }
