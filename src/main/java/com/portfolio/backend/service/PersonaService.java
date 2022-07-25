@@ -1,12 +1,12 @@
 package com.portfolio.backend.service;
 
-import com.portfolio.backend.model.Educacion;
-import com.portfolio.backend.model.Experiencia;
+
 import com.portfolio.backend.model.Persona;
-import com.portfolio.backend.model.Proyectos;
+
 import com.portfolio.backend.repository.PersonaRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -17,6 +17,8 @@ public class PersonaService implements IPersonaService {
 
     @Override
     public void crearPersona(Persona pers) {
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        pers.setPassword(encoder.encode(pers.getPassword()));
         persoRepo.save(pers);
     }
 
@@ -36,6 +38,11 @@ public class PersonaService implements IPersonaService {
             }
         }
         return aprobado;
+    }
+
+    @Override
+    public Persona buscarXNombre(String usuario) {        
+        return persoRepo.findByUsuario(usuario).orElse(null);
     }
 
 }

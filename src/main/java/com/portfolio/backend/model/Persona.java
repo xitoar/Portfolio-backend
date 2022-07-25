@@ -1,12 +1,18 @@
 package com.portfolio.backend.model;
 
 import java.util.List;
+import javax.persistence.CascadeType;
 import static javax.persistence.CascadeType.ALL;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,6 +26,7 @@ public class Persona {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nombre;
+    @Column (unique=true)
     private String usuario;
     private String password;
     private String mail;
@@ -33,6 +40,12 @@ public class Persona {
     private List<Experiencia> experiencia;
     @OneToMany(cascade = ALL, mappedBy = "persona")
     private List<Proyectos> proyectos;
+    @ManyToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+    @JoinTable( name = "userRoles", 
+                joinColumns = @JoinColumn(name = "user_id"), 
+                inverseJoinColumns = @JoinColumn(name = "roles_id")
+               )
+    List<Roles> roles;
 
     public Persona() {
     }

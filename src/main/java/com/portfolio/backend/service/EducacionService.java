@@ -23,7 +23,7 @@ public class EducacionService implements IEducacionService {
 
     @Override
     public List<Educacion> buscarEducacionTotal() {
-        return eduRepo.findAll() ;
+        return eduRepo.findAll();
     }
 
     @Override

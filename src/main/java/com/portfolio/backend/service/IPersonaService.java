@@ -9,5 +9,7 @@ public interface IPersonaService {
     public Persona buscarPersona(Long id);
 
     public boolean login(Persona pers);
+    
+    public Persona buscarXNombre(String usuario);
 
 }
