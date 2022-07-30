@@ -20,12 +20,12 @@ public class Roles {
     @Column(unique=true)    
     String rol;
     @ManyToMany(mappedBy = "roles")
-    List <Persona> users;
+    List <Usuario> usuario;
 
-    public Roles(Long id, String rol, List<Persona> users) {
+    public Roles(Long id, String rol, List<Usuario> usuario) {
         this.id = id;
         this.rol = rol;
-        this.users = users;
+        this.usuario = usuario;
     }   
  
     public Roles() {

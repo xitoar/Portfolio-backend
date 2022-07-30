@@ -10,6 +10,9 @@ public class JWTDTO {
     
     private String token;
 
+    public JWTDTO() {
+    }
+        
     public JWTDTO(String token) {
         this.token = token;
     }

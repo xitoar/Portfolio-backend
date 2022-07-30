@@ -54,6 +54,7 @@ public class SecurityConfig {
                 .authorizeRequests()
                 .antMatchers("/login").permitAll()                
                 .antMatchers("/info/*").permitAll()
+                .antMatchers("/crear").permitAll()
                 .anyRequest().hasAuthority("ROL_USER");
         http.addFilterBefore(jtwFilter(), UsernamePasswordAuthenticationFilter.class);
         return http.build();

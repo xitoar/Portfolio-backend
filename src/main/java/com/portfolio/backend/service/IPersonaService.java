@@ -4,12 +4,10 @@ import com.portfolio.backend.model.Persona;
 
 public interface IPersonaService {
 
-    public void crearPersona(Persona pers);
+    public void guardarPersona(Persona pers);
 
     public Persona buscarPersona(Long id);
 
-    public boolean login(Persona pers);
-    
     public Persona buscarXNombre(String usuario);
 
 }

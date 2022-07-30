@@ -1,7 +1,7 @@
 package com.portfolio.backend.DTO;
 
-import com.portfolio.backend.model.Persona;
 import com.portfolio.backend.model.Roles;
+import com.portfolio.backend.model.Usuario;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -21,10 +21,10 @@ public class UsuarioDTO implements UserDetails {
     private String password;
     private List<Roles> roles;   
 
-    public UsuarioDTO(Persona persona) {
-        this.username = persona.getUsuario();
-        this.password = persona.getPassword();
-        this.roles = persona.getRoles();
+    public UsuarioDTO(Usuario usuario) {
+        this.username = usuario.getUsuario();
+        this.password = usuario.getPassword();
+        this.roles = usuario.getRoles();
     }
 
     @Override
